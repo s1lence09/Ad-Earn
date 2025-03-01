@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "AdEarn Block",
+  "version": "1.1",
+  "description": "Block ads, auto-surf, and earn cryptocurrency",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "activeTab",
+    "tabs",
+    "alarms",
+    "notifications"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "host_permissions": [
+    "*://*.your-ad-server.com/*",
+    "*://*.your-mining-server.com/*",
+    "*://*.your-surfing-sites.com/*"
+  ]
+}
